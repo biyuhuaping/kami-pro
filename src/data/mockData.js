@@ -621,9 +621,9 @@ export const mockApiKeys = [
 
 // 系统设置数据 (基于 settings 表)
 export const mockSettings = {
-  site_title: '小小怪卡密验证系统',
+  site_title: '卡密验证系统',
   site_subtitle: '专业的卡密验证解决方案',
-  copyright_text: '小小怪卡密系统 - All Rights Reserved',
+  copyright_text: '卡密验证系统 - All Rights Reserved',
   contact_qq_group: '123456789',
   contact_wechat_qr: 'assets/images/wechat-qr.jpg',
   contact_email: 'support@example.com',

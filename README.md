@@ -2,7 +2,7 @@
 
 <img src="src/assets/icon.gif" alt="icon" width="120" />
 
-# 🚀 小小怪卡密验证系统 Pro
+# 🚀 卡密验证系统 Pro
 
 ### 🎯 全新一代卡密验证解决方案 - 正式发布！-完全免费-团队维护更新
 
@@ -293,6 +293,6 @@ curl -O https://raw.githubusercontent.com/xiaoxiaoguai-yyds/xxgkami-pro/refs/hea
 
 ---
 
-*© 2025 小小怪卡密验证系统. All rights reserved.*
+*© 2025 卡密验证系统. All rights reserved.*
 
 </div>

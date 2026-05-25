@@ -7,6 +7,7 @@ export default defineConfig({
   base: '/', // 使用绝对路径，避免在子路由下资源加载失败
   server: {
     port: 5173,
+    allowedHosts: ['bestmen.win', 'admin.bestmen.win'],
     proxy: {
       '/api': {
         target: 'http://localhost:8080',

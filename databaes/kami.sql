@@ -1,7 +1,7 @@
 /*
  Navicat Premium Dump SQL
 
- Source Server         : 小小怪
+ Source Server         : 
  Source Server Type    : MySQL
  Source Server Version : 90300 (9.3.0)
  Source Host           : localhost:3306
@@ -272,9 +272,9 @@ CREATE TABLE `settings`  (
 -- ----------------------------
 -- Records of settings
 -- ----------------------------
-INSERT INTO `settings` VALUES (1, 'site_title', '小小怪卡密验证系统');
+INSERT INTO `settings` VALUES (1, 'site_title', '卡密验证系统');
 INSERT INTO `settings` VALUES (2, 'site_subtitle', '专业的卡密验证解决方案');
-INSERT INTO `settings` VALUES (3, 'copyright_text', '小小怪卡密系统 - All Rights Reserved');
+INSERT INTO `settings` VALUES (3, 'copyright_text', '卡密系统 - All Rights Reserved');
 INSERT INTO `settings` VALUES (4, 'contact_qq_group', '123456789');
 INSERT INTO `settings` VALUES (5, 'contact_wechat_qr', 'assets/images/wechat-qr.jpg');
 INSERT INTO `settings` VALUES (6, 'contact_email', 'support@example.com');
@@ -417,7 +417,7 @@ CREATE TABLE `system_maintenance`  (
 -- ----------------------------
 -- Records of system_maintenance
 -- ----------------------------
-INSERT INTO `system_maintenance` VALUES (1, 0, '系统正在维护中，请稍后访问。', '8小时', '', '小小怪卡密系统维护通知', '');
+INSERT INTO `system_maintenance` VALUES (1, 0, '系统正在维护中，请稍后访问。', '8小时', '', '卡密系统维护通知', '');
 
 -- ----------------------------
 -- Table structure for user_api_keys

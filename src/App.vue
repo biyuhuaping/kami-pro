@@ -9,8 +9,9 @@ import NotificationPage from './components/NotificationPage.vue'
 import { authApi, maintenanceApi, userProfileApi } from './services/api.js'
 
 // 响应式数据
-const currentPage = ref('home') // 默认为首页
-const loginType = ref('user')
+const isAdminDomain = window.location.hostname === 'admin.bestmen.win' || window.location.hostname === 'localhost'
+const currentPage = ref(isAdminDomain ? 'login' : 'home')
+const loginType = ref(isAdminDomain ? 'admin' : 'user')
 const isLoggedIn = ref(false)
 const userInfo = ref(null)
 const loading = ref(true)
@@ -44,13 +45,18 @@ const checkLoginStatus = async () => {
         loginType.value = 'admin'
         currentPage.value = 'login'
       } else {
-        // 默认状态
         isLoggedIn.value = false
         userInfo.value = null
         localStorage.removeItem('userInfo')
         localStorage.removeItem('isLoggedIn')
         localStorage.removeItem('token')
         localStorage.removeItem('refreshToken')
+        if (isAdminDomain) {
+          loginType.value = 'admin'
+          currentPage.value = 'login'
+        } else {
+          currentPage.value = 'home'
+        }
       }
     }
   } catch (error) {
@@ -98,16 +104,8 @@ const handleLogout = async () => {
     localStorage.removeItem('token')
     localStorage.removeItem('refreshToken')
     
-    currentPage.value = 'login'
-    
-    // 根据当前 URL 判断是否显示管理员登录
-    const path = window.location.pathname
-    const hash = window.location.hash
-    if (path.includes('/admin') || hash.includes('admin')) {
-      loginType.value = 'admin'
-    } else {
-      loginType.value = 'user'
-    }
+    loginType.value = isAdminDomain ? 'admin' : 'user'
+    currentPage.value = isAdminDomain ? 'login' : 'home'
   }
 }
 

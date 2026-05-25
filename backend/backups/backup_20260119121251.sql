@@ -286,7 +286,7 @@ CREATE TABLE `settings` (
 
 LOCK TABLES `settings` WRITE;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-INSERT INTO `settings` VALUES (1,'site_title','小小怪卡密验证系统'),(2,'site_subtitle','专业的卡密验证解决方案'),(3,'copyright_text','小小怪卡密系统 - All Rights Reserved'),(4,'contact_qq_group','123456789'),(5,'contact_wechat_qr','assets/images/wechat-qr.jpg'),(6,'contact_email','support@example.com'),(7,'api_enabled','1'),(8,'api_key',''),(9,'smtp_server',''),(10,'smtp_port',''),(11,'smtp_email',''),(12,'smtp_password',''),(13,'smtp_ssl','true'),(14,'sender_name','XXG卡密系统'),(15,'notify_user_reg','true'),(16,'notify_order_create','true'),(17,'notify_key_used','true'),(18,'notify_sys_maint','true'),(19,'notify_sec_alert','true'),(20,'tpl_user_reg','欢迎注册XXG卡密系统！您的账户已成功创建。'),(21,'tpl_order_notify','您的订单已创建成功，订单号：{orderNumber}，请及时查看。'),(22,'tpl_sys_maint','系统将于{time}进行维护，预计维护时间{duration}，请提前做好准备。'),(65,'systemName','XXG卡密系统'),(66,'systemDescription','专业的卡密管理系统'),(67,'defaultLanguage','zh-CN'),(68,'timezone','Asia/Shanghai'),(69,'autoBackup','true'),(70,'backupFrequency','daily'),(71,'backupRetention','7'),(72,'dataCompression','true'),(73,'payment_enabled','true'),(74,'epay_api_url','https://pay.myzfw.com/'),(75,'epay_pid','F2338'),(76,'epay_key','wzz908.'),(77,'epay_notify_url',''),(78,'epay_return_url',''),(79,'site_url','http://localhost:5173'),(80,'oauth_url','https://baoxian18.com'),(81,'oauth_appid',''),(82,'oauth_appkey',''),(83,'oauth_login_types',''),(84,'oauth_callback_domain',''),(260,'qqLogin','false'),(261,'authenticatorLogin','false'),(262,'aggregatedLogin','true');
+INSERT INTO `settings` VALUES (1,'site_title','卡密验证系统'),(2,'site_subtitle','专业的卡密验证解决方案'),(3,'copyright_text','卡密系统 - All Rights Reserved'),(4,'contact_qq_group','123456789'),(5,'contact_wechat_qr','assets/images/wechat-qr.jpg'),(6,'contact_email','support@example.com'),(7,'api_enabled','1'),(8,'api_key',''),(9,'smtp_server',''),(10,'smtp_port',''),(11,'smtp_email',''),(12,'smtp_password',''),(13,'smtp_ssl','true'),(14,'sender_name','XXG卡密系统'),(15,'notify_user_reg','true'),(16,'notify_order_create','true'),(17,'notify_key_used','true'),(18,'notify_sys_maint','true'),(19,'notify_sec_alert','true'),(20,'tpl_user_reg','欢迎注册XXG卡密系统！您的账户已成功创建。'),(21,'tpl_order_notify','您的订单已创建成功，订单号：{orderNumber}，请及时查看。'),(22,'tpl_sys_maint','系统将于{time}进行维护，预计维护时间{duration}，请提前做好准备。'),(65,'systemName','XXG卡密系统'),(66,'systemDescription','专业的卡密管理系统'),(67,'defaultLanguage','zh-CN'),(68,'timezone','Asia/Shanghai'),(69,'autoBackup','true'),(70,'backupFrequency','daily'),(71,'backupRetention','7'),(72,'dataCompression','true'),(73,'payment_enabled','true'),(74,'epay_api_url','https://pay.myzfw.com/'),(75,'epay_pid','F2338'),(76,'epay_key','wzz908.'),(77,'epay_notify_url',''),(78,'epay_return_url',''),(79,'site_url','http://localhost:5173'),(80,'oauth_url','https://baoxian18.com'),(81,'oauth_appid',''),(82,'oauth_appkey',''),(83,'oauth_login_types',''),(84,'oauth_callback_domain',''),(260,'qqLogin','false'),(261,'authenticatorLogin','false'),(262,'aggregatedLogin','true');
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +428,7 @@ CREATE TABLE `system_maintenance` (
 
 LOCK TABLES `system_maintenance` WRITE;
 /*!40000 ALTER TABLE `system_maintenance` DISABLE KEYS */;
-INSERT INTO `system_maintenance` VALUES (1,0,'系统正在维护中，请稍后访问。','8小时','','小小怪卡密系统维护通知','');
+INSERT INTO `system_maintenance` VALUES (1,0,'系统正在维护中，请稍后访问。','8小时','','卡密系统维护通知','');
 /*!40000 ALTER TABLE `system_maintenance` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -14,43 +14,13 @@
         </template>
         <el-descriptions :column="1" border>
           <el-descriptions-item label="系统名称">XXG-KAMI-PRO 卡密验证系统</el-descriptions-item>
-          <el-descriptions-item label="当前版本">
-            <div class="version-row">
-              <span>{{ currentVersion }}</span>
-              <el-button type="primary" link size="small" @click="checkUpdate" :loading="checking">检查更新</el-button>
-            </div>
-          </el-descriptions-item>
+          <el-descriptions-item label="当前版本">{{ currentVersion }}</el-descriptions-item>
           <el-descriptions-item label="发布时间">2026-05-06</el-descriptions-item>
           <el-descriptions-item label="开发语言">Vue 3 + Spring Boot 3</el-descriptions-item>
-          <el-descriptions-item label="官方网站">
-            <a href="https://www.xxgkami.com" target="_blank" class="link">www.xxgkami.com</a>
-          </el-descriptions-item>
+          <el-descriptions-item label="官方网站">bestmen.win</el-descriptions-item>
         </el-descriptions>
       </el-card>
 
-      <el-card class="info-card">
-        <template #header>
-          <div class="card-header">
-            <span>开发团队</span>
-          </div>
-        </template>
-        <el-descriptions :column="1" border>
-          <el-descriptions-item label="作者">小小怪</el-descriptions-item>
-          <el-descriptions-item label="联系邮箱">xxgyyds@vip.qq.com</el-descriptions-item>
-          <el-descriptions-item label="QQ群组">
-            <a href="https://qm.qq.com/cgi-bin/qm/qr?k=5q7h3tdOC-fXyszk3kGCJxIImDW_hVBP&jump_from=webapi&authKey=n7o2H5vcTCkRNpnTbOSU9BxI4jP3WKv9Qytmfk2I2Y+zP28lb614xqvd3+qETV8x" target="_blank" class="link">1050160397 (点击加入)</a>
-          </el-descriptions-item>
-          <el-descriptions-item label="Gitee">
-            <a href="https://gitee.com/xiaoxiaoguai-yyds/xxgkami-pro" target="_blank" class="link">https://gitee.com/xiaoxiaoguai-yyds/xxgkami-pro</a>
-          </el-descriptions-item>
-          <el-descriptions-item label="GitHub">
-            <a href="https://github.com/xiaoxiaoguai-yyds/xxgkami-pro" target="_blank" class="link">https://github.com/xiaoxiaoguai-yyds/xxgkami-pro</a>
-          </el-descriptions-item>
-          <el-descriptions-item label="AtomGit">
-            <a href="https://atomgit.com/xiaoxiaoguai-yyds/xxgkami-pro" target="_blank" class="link">https://atomgit.com/xiaoxiaoguai-yyds/xxgkami-pro</a>
-          </el-descriptions-item>
-        </el-descriptions>
-      </el-card>
 
       <el-card class="info-card">
         <template #header>
@@ -64,23 +34,6 @@
         </div>
       </el-card>
 
-      <!-- 赞助模块 -->
-      <el-card class="info-card sponsor-card">
-        <template #header>
-          <div class="card-header">
-            <span>赞助开源</span>
-          </div>
-        </template>
-        <div class="sponsor-content">
-          <img src="../assets/aifadian.svg" alt="爱发电" class="sponsor-logo">
-          <p>如果觉得本项目对您有帮助，欢迎赞助支持作者持续开发！</p>
-          <a href="https://ifdian.net/a/xxgyyds" target="_blank" class="sponsor-btn">
-            <el-button type="primary" size="large" color="#946ce6" :dark="false">
-              前往爱发电赞助
-            </el-button>
-          </a>
-        </div>
-      </el-card>
     </div>
 
     <!-- 更新时间轴 -->
@@ -167,102 +120,19 @@
           <el-timeline-item timestamp="2026-01-17" placement="top">
             <el-card>
               <h4>v1.0.0 正式发布</h4>
-              <p>小小怪卡密验证系统 1.0 正式发布</p>
+              <p>卡密验证系统 1.0 正式发布</p>
             </el-card>
           </el-timeline-item>
         </el-timeline>
       </el-card>
     </div>
 
-    <!-- 更新提示弹窗 -->
-    <el-dialog v-model="showUpdateDialog" title="发现新版本" width="500px">
-      <div v-if="updateInfo">
-        <div class="new-version">最新版本: v{{ updateInfo.version }}</div>
-        <div class="update-date">发布时间: {{ updateInfo.buildDate }}</div>
-        <div class="changelog-title">更新内容:</div>
-        <ul class="changelog-list">
-          <li v-for="(item, index) in updateInfo.changelog" :key="index">{{ item }}</li>
-        </ul>
-        
-        <div v-if="updateInfo.updateScripts" class="update-scripts">
-          <div class="script-block">
-            <div class="script-header">
-              <span>国内更新脚本</span>
-              <el-button type="primary" link size="small" @click="copyScript(updateInfo.updateScripts.cn)">复制</el-button>
-            </div>
-            <div class="script-content">{{ updateInfo.updateScripts.cn }}</div>
-          </div>
-          <div class="script-block">
-            <div class="script-header">
-              <span>海外更新脚本</span>
-              <el-button type="primary" link size="small" @click="copyScript(updateInfo.updateScripts.global)">复制</el-button>
-            </div>
-            <div class="script-content">{{ updateInfo.updateScripts.global }}</div>
-          </div>
-        </div>
-      </div>
-      <template #footer>
-        <span class="dialog-footer">
-          <el-button @click="showUpdateDialog = false">关闭</el-button>
-          <el-button type="primary" @click="goToRepo">前往仓库</el-button>
-        </span>
-      </template>
-    </el-dialog>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { ElMessage } from 'element-plus'
-import { copyToClipboard } from '../utils/clipboard.js'
 
 const currentVersion = 'v1.0.6'
-const checking = ref(false)
-const showUpdateDialog = ref(false)
-const updateInfo = ref(null)
-
-const copyScript = async (text) => {
-  const success = await copyToClipboard(text)
-  if (success) {
-    ElMessage.success('脚本已复制到剪贴板')
-  } else {
-    ElMessage.error('复制失败，请手动复制')
-  }
-}
-
-const checkUpdate = async () => {
-  checking.value = true
-  try {
-    // 使用相对路径调用接口，避免跨域和混合内容问题
-    // 浏览器会自动使用当前页面的协议和域名
-    const res = await fetch('/api/monitor/check-update')
-    if (!res.ok) throw new Error('检查更新失败')
-    
-    const data = await res.json()
-    const remoteVersion = data.version
-    
-    // 简单的版本比较逻辑：如果不相等则提示更新
-    // 实际项目中建议使用 semver 库进行版本号比较
-    if (remoteVersion !== currentVersion.replace('v', '')) {
-      updateInfo.value = data
-      showUpdateDialog.value = true
-    } else {
-      ElMessage.success('当前已是最新版本')
-    }
-  } catch (error) {
-    console.error(error)
-    ElMessage.error('检查更新失败，请稍后重试')
-  } finally {
-    checking.value = false
-  }
-}
-
-const goToRepo = () => {
-  if (updateInfo.value && updateInfo.value.repoUrl) {
-    window.open(updateInfo.value.repoUrl, '_blank')
-    showUpdateDialog.value = false
-  }
-}
 </script>
 
 <style scoped>
